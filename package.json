@@ -1,0 +1,20 @@
+{
+  "name": "mlbstatsapi",
+  "version": "1.0.0",
+  "description": "TypeScript interface for MLB.com's Stats API",
+  "main": "index.js",
+  "author": "Kenny Jackelen",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/request": "^2.47.0",
+    "@types/request-promise": "^4.1.41",
+    "typescript": "^2.8.1"
+  }
+}
