@@ -1,7 +1,7 @@
 declare interface PlayByPlayResponse {
   copyright: string;
-  allPlays: AllPlay[];
-  currentPlay: CurrentPlay;
+  allPlays: Play[];
+  currentPlay: Play;
   scoringPlays: number[];
   playsByInning: PlaysByInning[];
 }
@@ -17,7 +17,7 @@ interface Result {
 
 interface About {
   atBatIndex: number;
-  halfInning: string;
+  halfInning: 'top'|'bottom';
   inning: number;
   startTime: Date;
   endTime: Date;
@@ -122,7 +122,7 @@ interface RunnerDetails {
 
 interface Runner {
   movement: Movement;
-  details: PlayDetails;
+  details: RunnerDetails;
 }
 
 interface Call {
@@ -208,18 +208,6 @@ interface PlayEvent {
   hitData: HitData;
 }
 
-interface AllPlay {
-  result: Result;
-  about: About;
-  count: Count;
-  matchup: Matchup;
-  pitchIndex: number[];
-  actionIndex: number[];
-  runnerIndex: number[];
-  runners: Runner[];
-  playEvents: PlayEvent[];
-}
-
 interface HotColdZone {
   zone: string;
   color: string;
@@ -227,7 +215,7 @@ interface HotColdZone {
   value: string;
 }
 
-interface CurrentPlay {
+interface Play {
   result: Result;
   about: About;
   count: Count;
