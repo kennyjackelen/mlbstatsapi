@@ -68,6 +68,16 @@ export namespace MLBStatsAPI {
   }
 
   /**
+   * Gets the schedule for today's games.
+   * @param seasonID
+   */
+  export async function getCurrentSchedule(): Promise<ScheduleResponse> {
+    const URL = `${BASE_URL}/schedule?sportId=1&useLatestGames=true`;
+    const response: ScheduleResponse = await rp( URL, { json: true } );
+    return response;
+  }
+
+  /**
    * Formats a date object in MM/DD/YYYY format, as expected by the MLB Stats API.
    * @param d 
    */
