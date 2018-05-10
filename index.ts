@@ -2,6 +2,7 @@
 /// <reference path="./typings/MLBStatsAPI/PlayByPlayResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/ScheduleResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/SeasonResponse.d.ts" />
+/// <reference path="./typings/MLBStatsAPI/TeamListResponse.d.ts" />
 
 import * as rp from 'request-promise';
 
@@ -78,6 +79,15 @@ export namespace MLBStatsAPI {
   export async function getCurrentSchedule(): Promise<ScheduleResponse> {
     const URL = `${BASE_URL}/schedule?sportId=1&useLatestGames=true`;
     const response: ScheduleResponse = await rp( URL, { json: true } );
+    return response;
+  }
+
+  /**
+   * Gets the schedule for today's games.
+   */
+  export async function getListOfTeams(): Promise<TeamListResponse> {
+    const URL = `${BASE_URL}/teams?sportId=1`;
+    const response: TeamListResponse = await rp( URL, { json: true } );
     return response;
   }
 

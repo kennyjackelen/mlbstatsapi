@@ -3,6 +3,7 @@
 /// <reference path="./typings/MLBStatsAPI/PlayByPlayResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/ScheduleResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/SeasonResponse.d.ts" />
+/// <reference path="./typings/MLBStatsAPI/TeamListResponse.d.ts" />
 Object.defineProperty(exports, "__esModule", { value: true });
 const rp = require("request-promise");
 var MLBStatsAPI;
@@ -56,6 +57,15 @@ var MLBStatsAPI;
         return response;
     }
     MLBStatsAPI.getCurrentSchedule = getCurrentSchedule;
+    /**
+     * Gets the schedule for today's games.
+     */
+    async function getListOfTeams() {
+        const URL = `${BASE_URL}/teams?sportId=1`;
+        const response = await rp(URL, { json: true });
+        return response;
+    }
+    MLBStatsAPI.getListOfTeams = getListOfTeams;
     /**
      * Formats a date object in MM/DD/YYYY format, as expected by the MLB Stats API.
      * @param d

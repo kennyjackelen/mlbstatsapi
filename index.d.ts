@@ -2,6 +2,7 @@
 /// <reference path="typings/MLBStatsAPI/PlayByPlayResponse.d.ts" />
 /// <reference path="typings/MLBStatsAPI/ScheduleResponse.d.ts" />
 /// <reference path="typings/MLBStatsAPI/SeasonResponse.d.ts" />
+/// <reference path="typings/MLBStatsAPI/TeamListResponse.d.ts" />
 export declare namespace MLBStatsAPI {
     type SeasonID = number | string;
     /**
@@ -33,6 +34,10 @@ export declare namespace MLBStatsAPI {
      * Gets the schedule for today's games.
      */
     function getCurrentSchedule(): Promise<ScheduleResponse>;
+    /**
+     * Gets the schedule for today's games.
+     */
+    function getListOfTeams(): Promise<TeamListResponse>;
     /**
      * Represents a range of dates
      */
