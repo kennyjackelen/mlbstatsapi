@@ -1,9 +1,14 @@
+/// <reference path="./typings/MLBStatsAPI/LinescoreResponse.d.ts" />
+/// <reference path="./typings/MLBStatsAPI/PlayByPlayResponse.d.ts" />
+/// <reference path="./typings/MLBStatsAPI/ScheduleResponse.d.ts" />
+/// <reference path="./typings/MLBStatsAPI/SeasonResponse.d.ts" />
+
 import * as rp from 'request-promise';
 
 export namespace MLBStatsAPI {
 
   const BASE_URL = 'https://statsapi.mlb.com/api/v1';
-  type SeasonID = number | string;
+  export type SeasonID = number | string;
 
   /**
    * Given a season, gets the date range for the regular season schedule.
@@ -69,7 +74,6 @@ export namespace MLBStatsAPI {
 
   /**
    * Gets the schedule for today's games.
-   * @param seasonID
    */
   export async function getCurrentSchedule(): Promise<ScheduleResponse> {
     const URL = `${BASE_URL}/schedule?sportId=1&useLatestGames=true`;
