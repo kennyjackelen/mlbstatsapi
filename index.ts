@@ -1,4 +1,5 @@
 /// <reference path="./typings/MLBStatsAPI/LinescoreResponse.d.ts" />
+/// <reference path="./typings/MLBStatsAPI/LiveFeedResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/PlayByPlayResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/ScheduleResponse.d.ts" />
 /// <reference path="./typings/MLBStatsAPI/SeasonResponse.d.ts" />
