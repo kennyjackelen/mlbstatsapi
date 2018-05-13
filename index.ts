@@ -60,6 +60,24 @@ export namespace MLBStatsAPI {
   }
 
   /**
+   * Gets the live feed data for a given game.
+   * @param game 
+   */
+  export async function getLiveFeed( game: Game ): Promise<LiveFeedResponse>;
+
+  /**
+   * Gets the live feed data for a given game.
+   * @param gamePK 
+   */
+  export async function getLiveFeed( gamePK: number ): Promise<LiveFeedResponse>;
+  export async function getLiveFeed( game: Game | number ): Promise<LiveFeedResponse> {
+    let gamePK = ( typeof ( game ) === 'number' ) ? game : game.gamePk;
+    const URL = `${BASE_URL}/game/${gamePK}/feed/live`;
+    const response: LiveFeedResponse = await rp( URL, { json: true } );
+    return response;
+  }
+
+  /**
    * Gets the schedule for an entire season.
    * @param seasonID
    */
