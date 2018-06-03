@@ -1,9 +1,4 @@
 "use strict";
-/// <reference path="./typings/MLBStatsAPI/LinescoreResponse.d.ts" />
-/// <reference path="./typings/MLBStatsAPI/PlayByPlayResponse.d.ts" />
-/// <reference path="./typings/MLBStatsAPI/ScheduleResponse.d.ts" />
-/// <reference path="./typings/MLBStatsAPI/SeasonResponse.d.ts" />
-/// <reference path="./typings/MLBStatsAPI/TeamListResponse.d.ts" />
 Object.defineProperty(exports, "__esModule", { value: true });
 const rp = require("request-promise");
 var MLBStatsAPI;
@@ -72,9 +67,9 @@ var MLBStatsAPI;
      */
     function FormatDate(d) {
         const options = {
-            year: 'numeric',
+            day: '2-digit',
             month: '2-digit',
-            day: '2-digit'
+            year: 'numeric',
         };
         return d.toLocaleDateString('en-US', options);
     }

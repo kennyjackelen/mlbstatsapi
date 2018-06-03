@@ -1,12 +1,26 @@
-declare interface PlayByPlayResponse {
+export interface IPlayByPlayResponse {
   copyright: string;
-  allPlays: Play[];
-  currentPlay: Play;
+  allPlays: IPlay[];
+  currentPlay: IPlay;
   scoringPlays: number[];
   playsByInning: PlaysByInning[];
 }
 
-interface Result {
+export interface IPlay {
+  result: Result;
+  about: About;
+  count: Count;
+  matchup: Matchup;
+  pitchIndex: number[];
+  actionIndex: number[];
+  runnerIndex: number[];
+  runners: Runner[];
+  playEvents: PlayEvent[];
+}
+
+/* tslint:disable interface-name */
+
+export interface Result {
   type: string;
   event: string;
   description: string;
@@ -15,9 +29,9 @@ interface Result {
   homeScore?: number;
 }
 
-interface About {
+export interface About {
   atBatIndex: number;
-  halfInning: 'top'|'bottom';
+  halfInning: 'top' | 'bottom';
   inning: number;
   startTime: Date;
   endTime: Date;
@@ -28,75 +42,75 @@ interface About {
   captivatingIndex: number;
 }
 
-interface Count {
+export interface Count {
   balls: number;
   strikes: number;
   outs: number;
 }
 
-interface Player {
+export interface Player {
   id: number;
   fullName: string;
   link: string;
 }
 
-interface BatSide {
+export interface BatSide {
   code: string;
   description: string;
 }
 
-interface PitchHand {
+export interface PitchHand {
   code: string;
   description: string;
 }
 
-interface Type {
+export interface Type {
   displayName: string;
 }
 
-interface Group {
+export interface Group {
   displayName: string;
 }
 
-interface Zone {
+export interface Zone {
   zone: string;
   color: string;
   temp: string;
   value: string;
 }
 
-interface SplitStat {
+export interface SplitStat {
   name: string;
   zones: Zone[];
 }
 
-interface Split {
+export interface Split {
   stat: SplitStat;
 }
 
-interface Stat {
+export interface Stat {
   type: Type;
   group: Group;
   splits: Split[];
 }
 
-interface BatterHotColdZoneStats {
+export interface BatterHotColdZoneStats {
   stats: Stat[];
 }
 
-interface HotColdZone {
+export interface HotColdZone {
   zone: string;
   color: string;
   temp: string;
 }
 
-interface Splits {
+export interface Splits {
   batter: string;
   pitcher: string;
   menOnBase: string;
 }
 
-interface Matchup {
+export interface Matchup {
   batter: Player;
   batSide: BatSide;
   pitcher: Player;
@@ -107,12 +121,12 @@ interface Matchup {
   splits: Splits;
 }
 
-interface Movement {
+export interface Movement {
   start: string;
   end: string;
 }
 
-interface RunnerDetails {
+export interface RunnerDetails {
   event: string;
   runner: Player;
   isScoringEvent: boolean;
@@ -120,22 +134,22 @@ interface RunnerDetails {
   earned: boolean;
 }
 
-interface Runner {
+export interface Runner {
   movement: Movement;
   details: RunnerDetails;
 }
 
-interface Call {
+export interface Call {
   code: string;
   description: string;
 }
 
-interface PitchType {
+export interface PitchType {
   code: string;
   description: string;
 }
 
-interface PlayDetails {
+export interface PlayDetails {
   call: Call;
   description: string;
   code: string;
@@ -153,7 +167,7 @@ interface PlayDetails {
   isScoringPlay?: boolean;
 }
 
-interface PitchCoordinates {
+export interface PitchCoordinates {
   aY: number;
   aZ: number;
   pfxX: number;
@@ -171,13 +185,13 @@ interface PitchCoordinates {
   aX: number;
 }
 
-interface Break {
+export interface Break {
   breakAngle: number;
   breakLength: number;
   breakY: number;
 }
 
-interface PitchData {
+export interface PitchData {
   startSpeed: number;
   endSpeed: number;
   nastyFactor: number;
@@ -187,13 +201,13 @@ interface PitchData {
   breaks: Break;
 }
 
-interface HitData {
+export interface HitData {
   launchSpeed: number;
   launchAngle: number;
   totalDistance: number;
 }
 
-interface PlayEvent {
+export interface PlayEvent {
   details: PlayDetails;
   count: Count;
   pitchData: PitchData;
@@ -208,45 +222,33 @@ interface PlayEvent {
   hitData: HitData;
 }
 
-interface HotColdZone {
+export interface HotColdZone {
   zone: string;
   color: string;
   temp: string;
   value: string;
 }
 
-interface Play {
-  result: Result;
-  about: About;
-  count: Count;
-  matchup: Matchup;
-  pitchIndex: number[];
-  actionIndex: number[];
-  runnerIndex: number[];
-  runners: Runner[];
-  playEvents: PlayEvent[];
-}
-
-interface SpringLeague {
+export interface SpringLeague {
   id: number;
   name: string;
   link: string;
   abbreviation: string;
 }
 
-interface Team {
+export interface Team {
   id: number;
   name: string;
   link: string;
   springLeague: SpringLeague;
 }
 
-interface HitCoordinates {
+export interface HitCoordinates {
   x: number;
   y: number;
 }
 
-interface HitDetail {
+export interface HitDetail {
   team: Team;
   inning: number;
   pitcher: Player;
@@ -256,12 +258,12 @@ interface HitDetail {
   description: string;
 }
 
-interface Hits {
+export interface Hits {
   away: HitDetail[];
   home: HitDetail[];
 }
 
-interface PlaysByInning {
+export interface PlaysByInning {
   startIndex: number;
   endIndex: number;
   top: number[];

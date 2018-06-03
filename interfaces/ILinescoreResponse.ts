@@ -1,4 +1,4 @@
-declare interface LinescoreResponse {
+export interface ILinescoreResponse {
   copyright: string;
   currentInning: number;
   currentInningOrdinal: string;
@@ -14,49 +14,51 @@ declare interface LinescoreResponse {
   outs: number;
 }
 
-interface Score {
+/* tslint:disable interface-name */
+
+export interface Score {
   runs: number;
 }
 
-interface Inning {
+export interface Inning {
   num: number;
   ordinalNum: string;
   home: Score;
   away: Score;
 }
 
-interface Linescore {
+export interface Linescore {
   runs: number;
   hits: number;
   errors: number;
 }
 
-interface LinescoreTeams {
+export interface LinescoreTeams {
   home: Linescore;
   away: Linescore;
 }
 
-interface Player {
+export interface Player {
   id: number;
   fullName: string;
   link: string;
 }
 
-interface SpringLeague {
+export interface SpringLeague {
   id: number;
   name: string;
   link: string;
   abbreviation: string;
 }
 
-interface Team {
+export interface Team {
   id: number;
   name: string;
   link: string;
   springLeague: SpringLeague;
 }
 
-interface Defense {
+export interface Defense {
   pitcher: Player;
   catcher: Player;
   first: Player;
@@ -69,10 +71,11 @@ interface Defense {
   team: Team;
 }
 
-interface Offense {
+export interface Offense {
   batter: Player;
   onDeck: Player;
   inHole: Player;
+  first: Player;
   second: Player;
   third: Player;
   pitcher: Player;

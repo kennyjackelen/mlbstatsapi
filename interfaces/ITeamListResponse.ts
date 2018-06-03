@@ -1,40 +1,42 @@
-declare interface TeamListResponse {
+export interface ITeamListResponse {
   copyright: string;
   teams: Team[];
 }
 
-interface Venue {
+/* tslint:disable interface-name */
+
+export interface Venue {
   id: number;
   name: string;
   link: string;
 }
 
-interface League {
+export interface League {
   id: number;
   name: string;
   link: string;
 }
 
-interface Division {
+export interface Division {
   id: number;
   name: string;
   link: string;
 }
 
-interface Sport {
+export interface Sport {
   id: number;
   link: string;
   name: string;
 }
 
-interface SpringLeague {
+export interface SpringLeague {
   id: number;
   name: string;
   link: string;
   abbreviation: string;
 }
 
-interface Team {
+export interface Team {
   id: number;
   name: string;
   link: string;

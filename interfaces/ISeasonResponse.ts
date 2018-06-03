@@ -1,9 +1,11 @@
-declare interface SeasonResponse {
+export interface ISeasonResponse {
   copyright: string;
   seasons: Season[];
 }
 
-interface Season {
+/* tslint:disable interface-name */
+
+export interface Season {
   seasonId: string;
   hasWildcard: boolean;
   regularSeasonStartDate: string;
