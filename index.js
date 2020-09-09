@@ -29,6 +29,13 @@ var MLBStatsAPI;
         return response;
     }
     MLBStatsAPI.getLinescore = getLinescore;
+    async function getBoxscore(game) {
+        let gamePK = (typeof (game) === 'number') ? game : game.gamePk;
+        const URL = `${BASE_URL}/game/${gamePK}/boxscore`;
+        const response = await rp(URL, { json: true });
+        return response;
+    }
+    MLBStatsAPI.getBoxscore = getBoxscore;
     /**
      * Gets the schedule for an entire season.
      * @param seasonID

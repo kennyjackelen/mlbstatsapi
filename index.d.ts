@@ -1,7 +1,8 @@
-import { ILinescoreResponse, IPlayByPlayResponse, IPlay, IScheduleDate, IScheduleGame, IScheduleResponse, ISeasonResponse, ITeamListResponse } from './interfaces';
+import { ILinescoreResponse, IBoxscoreResponse, IPlayByPlayResponse, IPlay, IScheduleDate, IScheduleGame, IScheduleResponse, ISeasonResponse, ITeamListResponse } from './interfaces';
 export declare namespace MLBStatsAPI {
     type SeasonID = number | string;
     type LinescoreResponse = ILinescoreResponse;
+    type BoxscoreResponse = IBoxscoreResponse;
     type Play = IPlay;
     type PlayByPlayResponse = IPlayByPlayResponse;
     type ScheduleDate = IScheduleDate;
@@ -29,6 +30,16 @@ export declare namespace MLBStatsAPI {
      * @param gamePK
      */
     function getLinescore(gamePK: number): Promise<ILinescoreResponse>;
+    /**
+     * Gets the boxscore data for a given game.
+     * @param game
+     */
+    function getBoxscore(game: IScheduleGame): Promise<IBoxscoreResponse>;
+    /**
+     * Gets the boxscore data for a given game.
+     * @param gamePK
+     */
+    function getBoxscore(gamePK: number): Promise<IBoxscoreResponse>;
     /**
      * Gets the schedule for an entire season.
      * @param seasonID

@@ -1,6 +1,7 @@
 import * as rp from 'request-promise';
 import {
   ILinescoreResponse,
+  IBoxscoreResponse,
   IPlayByPlayResponse,
   IPlay,
   IScheduleDate,
@@ -15,6 +16,7 @@ export namespace MLBStatsAPI {
   const BASE_URL = 'https://statsapi.mlb.com/api/v1';
   export type SeasonID = number | string;
   export type LinescoreResponse = ILinescoreResponse;
+  export type BoxscoreResponse = IBoxscoreResponse;
   export type Play = IPlay;
   export type PlayByPlayResponse = IPlayByPlayResponse;
   export type ScheduleDate = IScheduleDate;
@@ -70,6 +72,25 @@ export namespace MLBStatsAPI {
     let gamePK = ( typeof ( game ) === 'number' ) ? game : game.gamePk;
     const URL = `${BASE_URL}/game/${gamePK}/linescore`;
     const response: ILinescoreResponse = await rp( URL, { json: true } );
+    return response;
+  }
+
+  /**
+   * Gets the boxscore data for a given game.
+   * @param game
+   */
+  export async function getBoxscore( game: IScheduleGame ): Promise<IBoxscoreResponse>;
+
+  /**
+   * Gets the boxscore data for a given game.
+   * @param gamePK
+   */
+  /* tslint:disable-next-line unified-signatures */
+  export async function getBoxscore( gamePK: number ): Promise<IBoxscoreResponse>;
+  export async function getBoxscore( game: IScheduleGame | number ): Promise<IBoxscoreResponse> {
+    let gamePK = ( typeof ( game ) === 'number' ) ? game : game.gamePk;
+    const URL = `${BASE_URL}/game/${gamePK}/boxscore`;
+    const response: IBoxscoreResponse = await rp( URL, { json: true } );
     return response;
   }
 
